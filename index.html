@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roti Bakar Kita - Premium & Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
+      <div
+        class="container mx-auto px-4 py-2 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="#beranda" class="flex items-center space-x-4">
+            <img
+              src="logo.png.jpeg"
+              alt="Logo"
+              class="h-20 md:h-20 w-auto object-contain transition-all duration-3020"
+            />
+            <span
+              class="text-white font-black tracking-wider text-lg md:text-xl uppercase"
+            >
+              ROTI BAKAR <span class="text-red-600">KITA</span>
+            </span>
+          </a>
+        </div>
+        <div
+          class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wider items-center"
+        >
+          <a href="#beranda" class="text-red-500 border-b-2 border-red-500 pb-1"
+            >Beranda</a
+          >
+          <a href="#menu" class="hover:text-red-500 transition duration-300"
+            >Menu</a
+          >
+          <a href="#promo" class="hover:text-red-500 transition duration-300"
+            >Promo</a
+          >
+          <a href="#tentang" class="hover:text-red-500 transition duration-300"
+            >Tentang Kami</a
+          >
+          <a
+            href="#pesanan"
+            class="hover:text-red-500 transition duration-300 flex items-center"
+          >
+            Kasir
+            <span
+              id="cart-count-nav"
+              class="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full hidden"
+              >0</span
+            >
+          </a>
+        </div>
+        <div class="flex items-center space-x-4 text-xl">
+          <a
+            href="https://www.instagram.com/rotibakarkitaa"
+            target="_blank"
+            class="hover:text-red-500 text-xs font-medium flex items-center space-x-1 border border-zinc-800 px-3 py-1.5 rounded-full bg-zinc-900 transition"
+          >
+            <i class="fab fa-instagram text-red-500 text-sm"></i>
+            <span class="hidden sm:inline">@rotibakarkitaa</span>
+          </a>
+          <a href="#pesanan" class="relative hover:text-red-500">
+            <i class="fas fa-shopping-cart"></i>
+            <span
+              id="cart-badge"
+              class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden"
+              >0</span
+            >
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="beranda"
+      class="bg-black text-white py-20 px-4 relative overflow-hidden"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10"
+      >
+        <div class="md:w-1/2 space-y-6 mb-10 md:mb-0">
+          <p class="text-red-500 font-bold uppercase tracking-widest text-sm">
+            Roti Bakar Premium Klasik & Kekinian
+          </p>
+          <h1
+            class="text-4xl md:text-6xl font-extrabold uppercase leading-tight"
+          >
+            TEMUKAN <br /><span class="text-red-600">ROTI BAKAR</span>
+            <br />TERBAIKMU
+          </h1>
+          <p class="text-gray-400 max-w-md">
+            Kombinasi roti premium yang lembut di dalam, garing di luar,
+            dipadukan dengan selai melimpah dan topping kekinian yang memanjakan
+            lidah.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#menu"
+              class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded shadow-lg transition duration-300 uppercase text-sm tracking-wider"
+              ><i class="fas fa-utensils mr-2"></i> Pilih Menu</a
+            >
+            <a
+              href="#pesanan"
+              class="border border-white hover:bg-white hover:text-black text-white font-bold py-3 px-6 rounded transition duration-300 uppercase text-sm tracking-wider"
+              >Hitung Total</a
+            >
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center relative">
+          <div
+            class="w-72 h-72 md:w-96 md:h-96 bg-red-600 rounded-full absolute top-10 right-10 filter blur-xl opacity-30 animate-pulse"
+          ></div>
+          <img
+            src="roti bakar utama.png.jpg"
+            alt="Roti Bakar Utama"
+            class="rounded-lg shadow-2xl z-10 border-4 border-zinc-900 object-cover w-full max-w-md h-80"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-center text-sm font-bold uppercase tracking-widest mb-8 text-zinc-500"
+        >
+          Kategori Menu
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div
+            onclick="filterMenu('semua')"
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition text-center border-b-4 border-red-500 cursor-pointer cat-btn"
+            id="cat-semua"
+          >
+            <div class="text-red-500 text-3xl mb-2">
+              <i class="fas fa-border-all"></i>
+            </div>
+            <span class="font-bold text-sm uppercase">Semua Menu</span>
+          </div>
+          <div
+            onclick="filterMenu('manis')"
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition text-center border-b-4 border-transparent hover:border-red-500 cursor-pointer cat-btn"
+            id="cat-manis"
+          >
+            <div class="text-red-500 text-3xl mb-2">
+              <i class="fas fa-cookie-bite"></i>
+            </div>
+            <span class="font-bold text-sm uppercase">Varian Manis</span>
+          </div>
+          <div
+            onclick="filterMenu('asin')"
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition text-center border-b-4 border-transparent hover:border-red-500 cursor-pointer cat-btn"
+            id="cat-asin"
+          >
+            <div class="text-red-500 text-3xl mb-2">
+              <i class="fas fa-cheese"></i>
+            </div>
+            <span class="font-bold text-sm uppercase">Varian matcha</span>
+          </div>
+          <div
+            onclick="filterMenu('minuman')"
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition text-center border-b-4 border-transparent hover:border-red-500 cursor-pointer cat-btn"
+            id="cat-minuman"
+          >
+            <div class="text-red-500 text-3xl mb-2">
+              <i class="fas fa-glass-martini-alt"></i>
+            </div>
+            <span class="font-bold text-sm uppercase">Minuman</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="py-16">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-center text-2xl font-bold uppercase tracking-wider mb-2 text-zinc-900"
+        >
+          DAFTAR MENU
+        </h2>
+        <div class="w-16 h-1 bg-red-600 mx-auto mb-12"></div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          id="menu-container"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between group border hover:border-red-500 transition menu-item"
+            data-category="manis"
+          >
+            <img
+              src="roti-bakar-keju-susu.png"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4 space-y-2 flex-grow">
+              <h3 class="font-bold text-lg text-zinc-900">
+                Roti Bakar Cokelat Keju susu
+              </h3>
+              <p class="text-red-600 font-bold">Rp 20.000</p>
+              <div class="pt-2">
+                <label class="text-xs text-gray-500 block mb-1"
+                  >Tingkat Topping:</label
+                >
+                <select
+                  id="level-p1"
+                  class="text-xs border rounded p-1 w-full bg-gray-50 focus:outline-none"
+                >
+                  <option value="0">Regular (Standard)</option>
+                  <option value="3000">Extra Topping (+Rp 3.000)</option>
+                  <option value="6000">Double Topping (+Rp 6.000)</option>
+                </select>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <button
+                onclick="
+                  tambahKePesanan('Roti Bakar Cokelat Keju', 18000, 'level-p1')
+                "
+                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-sm transition uppercase tracking-wider"
+              >
+                <i class="fas fa-plus mr-2"></i> Tambah
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between group border hover:border-red-500 transition menu-item"
+            data-category="asin"
+          >
+            <img
+              src="Roti Bakar Macha.png.jpg"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4 space-y-2 flex-grow">
+              <h3 class="font-bold text-lg text-zinc-900">Roti Bakar matcha</h3>
+              <p class="text-red-600 font-bold">Rp 22.000</p>
+              <div class="pt-2">
+                <label class="text-xs text-gray-500 block mb-1"
+                  >Tingkat Pedas:</label
+                >
+                <select
+                  id="level-p2"
+                  class="text-xs border rounded p-1 w-full bg-gray-50 focus:outline-none"
+                >
+                  <option value="0">Regular (Standard)</option>
+                  <option value="3000">Extra Topping (+Rp 3.000)</option>
+                  <option value="6000">Double Topping (+Rp 6.000)</option>
+                </select>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <button
+                onclick="tambahKePesanan('Roti Bakar matcha', 22000, '')"
+                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-sm transition uppercase tracking-wider"
+              >
+                <i class="fas fa-plus mr-2"></i> Tambah
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between group border hover:border-red-500 transition menu-item"
+            data-category="manis"
+          >
+            <img
+              src="roti bakar coklat kacang.png.jpg"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4 space-y-2 flex-grow">
+              <h3 class="font-bold text-lg text-zinc-900">
+                Roti Bakar cokelat kacang
+              </h3>
+              <p class="text-red-600 font-bold">Rp 20.000</p>
+              <div class="pt-2">
+                <label class="text-xs text-gray-500 block mb-1"
+                  >Tingkat Topping:</label
+                >
+                <select
+                  id="level-p3"
+                  class="text-xs border rounded p-1 w-full bg-gray-50 focus:outline-none"
+                >
+                  <option value="0">Regular (Standard)</option>
+                  <option value="3000">Extra kacang (+Rp 3.000)</option>
+                </select>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <button
+                onclick="
+                  tambahKePesanan(
+                    'Roti Bakar cokelat kacang',
+                    20000,
+                    'level-p3',
+                  )
+                "
+                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-sm transition uppercase tracking-wider"
+              >
+                <i class="fas fa-plus mr-2"></i> Tambah
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between group border hover:border-red-500 transition menu-item"
+            data-category="minuman"
+          >
+            <img src="es teh.png.jpg" class="w-full h-48 object-cover" />
+            <div class="p-4 space-y-2 flex-grow">
+              <h3 class="font-bold text-lg text-zinc-900">es teh</h3>
+              <p class="text-red-600 font-bold">Rp 5.000</p>
+              <div class="pt-2">
+                <label class="text-xs text-gray-500 block mb-1"
+                  >Ukuran Gelas:</label
+                >
+                <select
+                  id="level-p4"
+                  class="text-xs border rounded p-1 w-full bg-gray-50 focus:outline-none"
+                >
+                  <option value="0">Reguler (Medium)</option>
+                  <option value="4000">Jumbo (+Rp 4.000)</option>
+                </select>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <button
+                onclick="tambahKePesanan('Es teh', 5000, 'level-p4')"
+                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-sm transition uppercase tracking-wider"
+              >
+                <i class="fas fa-plus mr-2"></i> Tambah
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="promo" class="container mx-auto px-4 mb-16">
+      <div
+        class="bg-gradient-to-r from-red-700 via-red-600 to-black rounded-xl p-8 text-white flex flex-col md:flex-row items-center justify-between shadow-xl relative overflow-hidden"
+      >
+        <div class="flex items-center space-x-6 mb-6 md:mb-0">
+          <div
+            class="hidden sm:block text-5xl bg-black bg-opacity-20 p-4 rounded-lg"
+          >
+            <i class="fas fa-tags"></i>
+          </div>
+          <div>
+            <h3
+              class="text-2xl md:text-3xl font-black uppercase tracking-wider"
+            >
+              DISKON SPESIAL
+            </h3>
+            <p class="text-sm text-red-100">
+              Gunakan kode voucher di kasir untuk potongan harga otomatis!
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6"
+        >
+          <div class="text-center sm:text-right">
+            <span class="text-xs uppercase tracking-widest block text-red-200"
+              >POTONGAN</span
+            >
+            <span class="text-4xl md:text-5xl font-black"
+              >10% <span class="text-xl">OFF</span></span
+            >
+          </div>
+          <div
+            class="bg-black bg-opacity-40 border border-dashed border-red-400 px-4 py-2 rounded text-center"
+          >
+            <p class="text-xs text-gray-300">KODE VOUCHER :</p>
+            <p
+              class="font-mono font-bold text-lg text-yellow-400 tracking-widest"
+            >
+              ROTIKITA10
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pesanan" class="py-16 bg-zinc-900 text-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2
+          class="text-center text-2xl font-bold uppercase tracking-wider mb-2"
+        >
+          SISTEM KASIR INTERAKTIF
+        </h2>
+        <p class="text-center text-gray-400 text-xs mb-8">
+          Kelola item, masukkan voucher, dan kalkulasi subtotal belanja secara
+          langsung.
+        </p>
+
+        <div
+          class="bg-zinc-950 p-6 rounded-lg border border-zinc-800 shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          <div class="md:col-span-2 space-y-4">
+            <h3
+              class="font-bold border-b border-zinc-800 pb-2 text-sm uppercase text-red-500"
+            >
+              <i class="fas fa-shopping-basket mr-2"></i>Item Pesanan
+            </h3>
+            <div
+              id="daftar-item-pesanan"
+              class="space-y-3 max-h-64 overflow-y-auto pr-2 text-sm text-gray-300"
+            >
+              <p class="text-gray-500 italic text-center py-8">
+                Belum ada item terpilih. Klik 'Tambah' pada menu di atas.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-zinc-900 p-4 rounded border border-zinc-800 space-y-4 flex flex-col justify-between"
+          >
+            <div>
+              <h3
+                class="font-bold border-b border-zinc-800 pb-2 text-sm uppercase text-red-500"
+              >
+                <i class="fas fa-calculator mr-2"></i>Total Biaya
+              </h3>
+              <div class="space-y-2 pt-4 text-xs">
+                <div class="flex justify-between text-gray-400">
+                  <span>Subtotal:</span>
+                  <span id="label-subtotal">Rp 0</span>
+                </div>
+                <div class="flex justify-between text-gray-400">
+                  <span>Potongan (Voucher):</span>
+                  <span id="label-potongan" class="text-green-500">- Rp 0</span>
+                </div>
+                <hr class="border-zinc-800 my-2" />
+                <div
+                  class="flex justify-between text-base font-bold text-white"
+                >
+                  <span>Total Akhir:</span>
+                  <span id="label-total" class="text-yellow-400">Rp 0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3 pt-4">
+              <div>
+                <label class="text-[10px] uppercase text-gray-400 block mb-1"
+                  >Kode Voucher</label
+                >
+                <div class="flex space-x-1">
+                  <input
+                    type="text"
+                    id="input-voucher"
+                    placeholder="ROTIKITA10"
+                    class="bg-zinc-950 border border-zinc-800 rounded p-1.5 w-full text-xs uppercase text-white focus:outline-none focus:border-red-500"
+                  />
+                  <button
+                    onclick="terapkanVoucher()"
+                    class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded text-xs font-bold uppercase"
+                  >
+                    Pakai
+                  </button>
+                </div>
+                <p id="pesan-voucher" class="text-[10px] mt-1 hidden"></p>
+              </div>
+              <button
+                onclick="prosesCheckout()"
+                class="w-full bg-green-600 hover:bg-green-700 text-white text-xs font-bold py-2.5 rounded transition uppercase tracking-wider mt-2"
+              >
+                <i class="fab fa-whatsapp mr-2"></i>Kirim via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang" class="py-16 bg-white border-t">
+      <div
+        class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12"
+      >
+        <div class="md:w-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop"
+            class="rounded-lg shadow-xl object-cover w-full h-64 md:h-80"
+          />
+        </div>
+        <div class="md:w-1/2 space-y-6">
+          <h2 class="text-2xl font-bold uppercase tracking-wider text-zinc-900">
+            TENTANG KAMI
+          </h2>
+          <div class="w-12 h-1 bg-red-600"></div>
+          <p class="text-gray-600 leading-relaxed">
+            <strong>Roti Bakar Kita</strong> hadir untuk memberikan pengalaman
+            menikmati roti bakar premium dengan harga yang masuk akal. Kami
+            selalu berkomitmen menggunakan bahan-bahan higienis serta racikan
+            selai berkualitas demi kepuasan setiap penikmat rasa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="bg-zinc-950 text-gray-400 text-sm pt-12 pb-6 border-t border-zinc-800"
+    >
+      <div
+        class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12"
+      >
+        <div class="space-y-4">
+          <h3 class="text-white font-bold text-lg tracking-wider text-red-600">
+            ROTI BAKAR<span class="text-white"> KITA</span>
+          </h3>
+          <p class="text-xs text-gray-500">
+            Rasakan kehangatan dan kelembutan roti bakar pilihan terbaik di kota
+            Semarang
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-white font-bold uppercase tracking-wider text-xs">
+            Hubungi Kami
+          </h4>
+          <div class="space-y-2 text-xs">
+            <a
+              href="https://wa.me/62882006535963"
+              target="_blank"
+              q
+              class="flex items-center hover:text-white transition"
+              ><i class="fab fa-whatsapp w-6 text-red-500"></i> 0882006535963</a
+            >
+            <a
+              href="https://www.instagram.com/rotibakarkitaa"
+              target="_blank"
+              class="flex items-center hover:text-white transition"
+              ><i class="fab fa-instagram w-6 text-red-500"></i>
+              @rotibakarkitaa</a
+            >
+            <a
+              href="mailto:fajarmaulanaasa01@gmail.com"
+              class="flex items-center hover:text-white transition"
+              ><i class="far fa-envelope w-6 text-red-500"></i>
+              fajarmaulanaasa01@gmail.com</a
+            >
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-white font-bold uppercase tracking-wider text-xs">
+            Informasi
+          </h4>
+          <ul class="space-y-2 text-xs">
+            <li>
+              <a href="#tentang" class="hover:text-white transition"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a href="#menu" class="hover:text-white transition"
+                >Daftar Menu</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="text-white font-bold uppercase tracking-wider text-xs">
+            Ikuti Media Sosial
+          </h4>
+          <div class="flex space-x-4 text-xl">
+            <a
+              href="https://www.instagram.com/rotibakarkitaa"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+              title="Instagram Resmi"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="container mx-auto px-4 border-t border-zinc-900 pt-6 text-center text-xs text-gray-600 flex flex-col sm:flex-row justify-between items-center"
+      >
+        <p>&copy; 2026 Roti Bakar Kita. All Rights Reserved.</p>
+        <p class="mt-2 sm:mt-0">
+          Desain oleh
+          <span class="text-gray-400 font-semibold">Fajar Arrasya</span>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      let keranjang = [];
+      let diskonPersen = 0;
+
+      function filterMenu(kategori) {
+        const items = document.querySelectorAll(".menu-item");
+        const buttons = document.querySelectorAll(".cat-btn");
+
+        buttons.forEach((btn) => btn.classList.remove("border-red-500"));
+        document
+          .getElementById(`cat-${kategori}`)
+          .classList.add("border-red-500");
+
+        items.forEach((item) => {
+          if (
+            kategori === "semua" ||
+            item.getAttribute("data-category") === kategori
+          ) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+        });
+      }
+
+      function tambahKePesanan(namaItem, hargaDasar, selectId) {
+        const selectElement = document.getElementById(selectId);
+        const hargaTambahan = parseInt(selectElement.value);
+        const textOpsi =
+          selectElement.options[selectElement.selectedIndex].text;
+        const hargaTotalItem = hargaDasar + hargaTambahan;
+        const itemEksis = keranjang.find(
+          (i) => i.nama === namaItem && i.opsi === textOpsi,
+        );
+
+        if (itemEksis) {
+          itemEksis.jumlah += 1;
+        } else {
+          keranjang.push({
+            nama: namaItem,
+            opsi: textOpsi,
+            harga: hargaTotalItem,
+            jumlah: 1,
+          });
+        }
+        perbaruiTampilanKasir();
+      }
+
+      function hapusItem(index) {
+        const item = keranjang[index];
+        if (item.jumlah > 1) {
+          item.jumlah -= 1;
+        } else {
+          keranjang.splice(index, 1);
+        }
+        perbaruiTampilanKasir();
+      }
+
+      function perbaruiTampilanKasir() {
+        const container = document.getElementById("daftar-item-pesanan");
+        const badgeNav = document.getElementById("cart-count-nav");
+        const badgeIcon = document.getElementById("cart-badge");
+
+        if (keranjang.length === 0) {
+          container.innerHTML = `<p class="text-gray-500 italic text-center py-8">Belum ada item terpilih. Klik 'Tambah' pada menu di atas.</p>`;
+          badgeNav.classList.add("hidden");
+          badgeIcon.classList.add("hidden");
+          document.getElementById("label-subtotal").innerText = "Rp 0";
+          document.getElementById("label-potongan").innerText = "- Rp 0";
+          document.getElementById("label-total").innerText = "Rp 0";
+          return;
+        }
+
+        let totalQty = keranjang.reduce((acc, item) => acc + item.jumlah, 0);
+        badgeNav.innerText = totalQty;
+        badgeNav.classList.remove("hidden");
+        badgeIcon.innerText = totalQty;
+        badgeIcon.classList.remove("hidden");
+
+        container.innerHTML = "";
+        let subtotal = 0;
+
+        keranjang.forEach((item, index) => {
+          const totalHargaItem = item.harga * item.jumlah;
+          subtotal += totalHargaItem;
+
+          container.innerHTML += `
+                    <div class="flex justify-between items-center bg-zinc-900 p-3 rounded border border-zinc-800">
+                        <div>
+                            <p class="font-bold text-white">${item.nama} <span class="text-xs text-gray-500">x${item.jumlah}</span></p>
+                            <p class="text-[11px] text-zinc-400">${item.opsi}</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-yellow-400 font-semibold">Rp ${totalHargaItem.toLocaleString("id-ID")}</span>
+                            <button onclick="hapusItem(${index})" class="text-zinc-500 hover:text-red-500 text-xs"><i class="fas fa-minus-circle"></i></button>
+                        </div>
+                    </div>
+                `;
+        });
+
+        let shortcutPotongan = subtotal * (diskonPersen / 100);
+        let totalAkhir = subtotal - shortcutPotongan;
+
+        document.getElementById("label-subtotal").innerText =
+          `Rp ${subtotal.toLocaleString("id-ID")}`;
+        document.getElementById("label-potongan").innerText =
+          `- Rp ${shortcutPotongan.toLocaleString("id-ID")}`;
+        document.getElementById("label-total").innerText =
+          `Rp ${totalAkhir.toLocaleString("id-ID")}`;
+      }
+
+      function terapkanVoucher() {
+        const kode = document
+          .getElementById("input-voucher")
+          .value.trim()
+          .toUpperCase();
+        const pesan = document.getElementById("pesan-voucher");
+        pesan.classList.remove("hidden", "text-green-400", "text-red-400");
+
+        if (kode === "ROTIKITA10") {
+          diskonPersen = 10;
+          pesan.innerText = "Voucher Berhasil Dipasang! Potongan 10%";
+          pesan.classList.add("text-green-400");
+        } else {
+          diskonPersen = 0;
+          pesan.innerText = "Kode voucher tidak valid.";
+          pesan.classList.add("text-red-400");
+        }
+        perbaruiTampilanKasir();
+      }
+
+      function prosesCheckout() {
+        if (keranjang.length === 0) {
+          alert("Keranjang belanja kosong!");
+          return;
+        }
+
+        let textWA = `*Halo Roti Bakar Kita, Saya ingin memesan:*\n\n`;
+        let subtotal = 0;
+
+        keranjang.forEach((item) => {
+          const totalHargaItem = item.harga * item.jumlah;
+          subtotal += totalHargaItem;
+          textWA += `- *${item.nama}* (x${item.jumlah})\n  Varian: ${item.opsi}\n  Harga: Rp ${totalHargaItem.toLocaleString("id-ID")}\n\n`;
+        });
+
+        let shortcutPotongan = subtotal * (diskonPersen / 100);
+        let totalAkhir = subtotal - shortcutPotongan;
+
+        textWA += `----------------------------------\n`;
+        textWA += `*Subtotal:* Rp ${subtotal.toLocaleString("id-ID")}\n`;
+        if (diskonPersen > 0)
+          textWA += `*Potongan (10%):* -Rp ${shortcutPotongan.toLocaleString("id-ID")}\n`;
+        textWA += `*Total Akhir:* *Rp ${totalAkhir.toLocaleString("id-ID")}*\n\n`;
+        textWA += `Mohon segera dikonfirmasi pesanan saya ya, terima kasih!`;
+
+        const urlWA = `https://wa.me/62882006535963?text=${encodeURIComponent(textWA)}`;
+        window.open(urlWA, "_blank");
+      }
+    </script>
+  </body>
+</html>
